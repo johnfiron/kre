@@ -16,7 +16,11 @@
     <header class="site-header">
       <div class="container site-header-inner">
         <a class="brand" href="./index.html">
-          <span class="brand-mark">KRP</span>
+          <img
+            src="./assets/images/logo.png"
+            alt="Kelley Real Estate Professionals logo"
+            class="brand-logo"
+          />
           <span>Kelley Real Estate Professionals</span>
         </a>
         <nav class="site-nav" aria-label="Main navigation">
@@ -33,7 +37,7 @@
             <li><a href="./our-agents.html">Our Agents</a></li>
             <li><a class="active" href="./reviews.html">Reviews</a></li>
             <li><a href="./index.html#seller-valuation">Home Valuation</a></li>
-            <li><a href="#review-lead-form">Contact</a></li>
+            <li><a href="#review-lead-form" data-scroll-center>Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -64,7 +68,7 @@
               </div>
             </div>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#review-lead-form">
+              <a class="btn btn-primary" href="#review-lead-form" data-scroll-center>
                 Talk to the team
               </a>
               <a class="btn btn-secondary" href="./our-agents.html">
@@ -73,7 +77,15 @@
             </div>
           </article>
 
-          <aside class="card form-card" id="review-lead-form">
+          <div class="card hero-image-card">
+            <img
+              src="./assets/images/property-avenue-1.jpeg"
+              alt="Happy homeowners in front of sold property"
+              class="hero-image"
+            />
+          </div>
+
+          <aside class="card form-card" id="review-lead-form" data-scroll-target>
             <h2>Want the same experience?</h2>
             <p>
               Tell us your timeline and goals. We will connect you with the
@@ -83,6 +95,8 @@
               class="lead-form"
               data-lead-form
               data-form-name="Review Page Lead"
+              data-confirm-email-subject="Your Kelley consultation request is confirmed"
+              data-confirm-email-template="review"
             >
               <div>
                 <label for="review-name">Name *</label>
@@ -199,11 +213,47 @@
               <a href="tel:+13014731800">301-473-1800</a><br />
               <a href="mailto:info@kelleypros.com">info@kelleypros.com</a>
             </p>
-            <a class="btn btn-primary" href="#review-lead-form">Schedule now</a>
+            <a class="btn btn-primary" href="#review-lead-form" data-scroll-center>
+              Schedule now
+            </a>
           </article>
         </div>
       </section>
     </main>
+
+    <button
+      class="chat-toggle btn btn-primary"
+      type="button"
+      data-chat-toggle
+      aria-expanded="false"
+      aria-controls="chat-panel"
+    >
+      Chat with us
+    </button>
+
+    <section class="chat-panel card" id="chat-panel" data-chat-panel aria-live="polite">
+      <div class="chat-header">
+        <strong>Kelley Assistant</strong>
+        <button type="button" class="chat-close" data-chat-close aria-label="Close chat">
+          ×
+        </button>
+      </div>
+      <div class="chat-messages" data-chat-messages>
+        <p class="chat-msg bot">
+          Hi! I can help with buying, selling, valuations, and connecting you with the
+          right local agent.
+        </p>
+      </div>
+      <form class="chat-form" data-chat-form>
+        <input
+          type="text"
+          name="message"
+          placeholder="Ask about neighborhoods, pricing, or next steps..."
+          required
+        />
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </section>
 
     <footer class="site-footer">
       <div class="container footer-grid">
