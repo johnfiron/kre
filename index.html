@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="./index.html" />
-    <meta name="theme-color" content="#0d4a8c" />
+    <meta name="theme-color" content="#2f5cf7" />
     <link rel="stylesheet" href="./assets/styles.css" />
     <script type="application/ld+json">
       {
@@ -32,14 +32,19 @@
         "url": "./index.html"
       }
     </script>
+    <script src="./assets/chatbot-config.js" defer></script>
     <script src="./assets/main.js" defer></script>
   </head>
-  <body>
+    <body data-form-recipient="info@kelleypros.com">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container site-header-inner">
         <a class="brand" href="./index.html">
-          <span class="brand-mark">KRP</span>
+          <img
+            src="./assets/images/logo.png"
+            alt="Kelley Real Estate Professionals logo"
+            class="brand-logo"
+          />
           <span>Kelley Real Estate Professionals</span>
         </a>
         <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +61,7 @@
             <li><a href="./our-agents.html">Our Agents</a></li>
             <li><a href="./reviews.html">Reviews</a></li>
             <li><a href="#seller-valuation">Home Valuation</a></li>
-            <li><a href="#lead-form">Contact</a></li>
+            <li><a href="#lead-form" data-scroll-center>Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -75,8 +80,10 @@
               strategy from day one.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#lead-form">Get matched now</a>
-              <a class="btn btn-secondary" href="#seller-valuation">
+              <a class="btn btn-primary" href="#lead-form" data-scroll-center>
+                Get matched now
+              </a>
+              <a class="btn btn-secondary" href="#seller-valuation" data-scroll-center>
                 Request home valuation
               </a>
             </div>
@@ -96,13 +103,27 @@
             </div>
           </article>
 
-          <aside class="card form-card" id="lead-form">
+          <div class="card hero-image-card">
+            <img
+              src="./assets/images/hero-home.png"
+              alt="Scenic local home listing"
+              class="hero-image"
+            />
+          </div>
+
+          <aside class="card form-card" id="lead-form" data-scroll-target>
             <h2>Start your search with a dedicated expert</h2>
             <p>
               Tell us your goal and we will follow up with tailored options and
               next steps.
             </p>
-            <form class="lead-form" data-lead-form data-form-name="Homepage Lead">
+            <form
+              class="lead-form"
+              data-lead-form
+              data-form-name="Homepage Lead"
+              data-confirm-email-subject="Thanks for contacting Kelley Real Estate Professionals"
+              data-confirm-email-template="home-lead"
+            >
               <div>
                 <label for="home-name">Name *</label>
                 <input id="home-name" name="name" required />
@@ -163,7 +184,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section-pop">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Featured opportunities</p>
@@ -172,7 +193,7 @@
           <div class="grid-3">
             <article class="card listing-card">
               <img
-                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80"
+                src="./assets/images/property-brick-home.jpeg"
                 alt="Single-family home exterior"
               />
               <h3>Middletown family homes</h3>
@@ -185,7 +206,7 @@
             </article>
             <article class="card listing-card">
               <img
-                src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=900&q=80"
+                src="./assets/images/property-suburban-1.jpeg"
                 alt="Townhome street view"
               />
               <h3>Move-in ready townhomes</h3>
@@ -196,7 +217,7 @@
             </article>
             <article class="card listing-card">
               <img
-                src="https://images.unsplash.com/photo-1472220625704-91e1462799b2?auto=format&fit=crop&w=900&q=80"
+                src="./assets/images/property-forest-home.jpeg"
                 alt="Open land for potential build"
               />
               <h3>Land and custom build lots</h3>
@@ -209,7 +230,7 @@
         </div>
       </section>
 
-      <section class="section" id="seller-valuation">
+      <section class="section section-gradient" id="seller-valuation">
         <div class="container split">
           <article class="banner">
             <p class="eyebrow">Seller lead magnet</p>
@@ -223,12 +244,14 @@
               want to list.
             </p>
           </article>
-          <aside class="card form-card">
+          <aside class="card form-card" id="valuation-form" data-scroll-target>
             <h3>Request your valuation report</h3>
             <form
               class="lead-form"
               data-lead-form
               data-form-name="Home Valuation Request"
+              data-confirm-email-subject="Your Kelley valuation request is confirmed"
+              data-confirm-email-template="valuation"
             >
               <div>
                 <label for="valuation-name">Name *</label>
@@ -349,15 +372,59 @@
               Share your goals and one of our agents will provide specific next
               actions tailored to your timeline.
             </p>
-            <a class="btn btn-primary" href="#lead-form">Speak with an agent</a>
+            <a class="btn btn-primary" href="#lead-form" data-scroll-center>
+              Speak with an agent
+            </a>
           </article>
         </div>
       </section>
     </main>
 
     <div class="sticky-mobile-cta">
-      <a class="btn btn-primary" href="#lead-form">Get matched with an agent</a>
+      <a class="btn btn-primary" href="#lead-form" data-scroll-center>
+        Get matched with an agent
+      </a>
     </div>
+
+    <button
+      class="chat-toggle btn btn-primary"
+      type="button"
+      data-chat-toggle
+      aria-expanded="false"
+      aria-controls="chat-panel"
+    >
+      Chat with us
+    </button>
+
+    <section class="chat-panel card" id="chat-panel" data-chat-panel aria-live="polite">
+      <div class="chat-header">
+        <strong>Kelley Assistant</strong>
+        <button type="button" class="chat-close" data-chat-close aria-label="Close chat">
+          ×
+        </button>
+      </div>
+      <div class="chat-messages" data-chat-messages>
+        <p class="chat-msg bot">
+          Hi! I can help with buying, selling, valuations, and connecting you with the
+          right local agent.
+        </p>
+      </div>
+      <form class="chat-form" data-chat-form>
+        <input
+          type="text"
+          name="message"
+          placeholder="Ask about neighborhoods, pricing, or next steps..."
+          required
+        />
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </section>
+
+    <script src="./assets/chatbot-config.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+      defer
+    ></script>
 
     <footer class="site-footer">
       <div class="container footer-grid">
